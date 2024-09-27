@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mexvin Canlas Portfolio</title>
+    <title>MC Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,5 +13,42 @@
         <p>lets try and learn the basics again hihi</p>
         <img src="assets/images/mexwzaku.jpg" alt="profile pic">
         <p> face ass body go wow </p>
+<body class="bg-white text-gray-800">
+  
+  <!-- Splash Screen -->
+  <div id="splash-screen">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold text-white">Welcome to My Portfolio</h1>
+      <p class="mt-4 text-lg text-white">Loading...</p>
+    </div>
+  </div>
+  
+   <!-- Main Content -->
+   <div id="main-content">
+        <header class="bg-gray-800 text-white p-6">
+          <h1 class="text-3xl font-bold">My Awesome Portfolio</h1>
+        </header>
+        <main class="p-6">
+          <section class="mt-8">
+            <h2 class="text-2xl font-semibold">Projects</h2>
+            <p>Here are some of my amazing projects...</p>
+          </section>
+        </main>
+      </div>
+
+  <script>
+    // JavaScript to handle splash screen
+    window.addEventListener('load', function () {
+      const splashScreen = document.getElementById('splash-screen');
+      const mainContent = document.getElementById('main-content');
+
+      // Hide splash screen after a delay (e.g., 2 seconds)
+      setTimeout(() => {
+        splashScreen.style.display = 'none'; // Remove splash screen after animation
+        mainContent.classList.add('active'); // Show main content
+      }, 2000); // Match the animation duration (2 seconds)
+    });
+  </script>
+
 </body>
 </html>

@@ -1,3 +1,43 @@
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a202c; /* Tailwind's gray-900 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: zoomOut 2s ease forwards; /* Apply the zoom-out effect */
+  }
+
+  /* Keyframes for the zoom-out effect */
+  @keyframes zoomOut {
+    0% {
+      opacity: 1;
+      transform: scale(1); /* Start at normal size */
+    }
+    90% {
+      opacity: 0.5;
+      transform: scale(0.8); /* Shrinks a bit */
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5); /* Zooms out fully and fades */
+    }
+  }
+
+  /* Main content hidden until splash finishes */
+  #main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  /* Show main content once splash is gone */
+  #main-content.active {
+    opacity: 1;
+  }
 body{
     padding: 0;
     margin: 0;
