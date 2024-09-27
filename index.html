@@ -3,45 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MC Portfolio</title>
+    <title>Mexvin</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom styles */
+        body {
+            margin: 0; /* Remove default body margin */
+            height: 100vh; /* Full height for the body */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .background {
+            position: absolute; /* Position absolute to cover the entire viewport */
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        .background::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200%; /* Double the size for rays */
+            height: 200%; /* Double the size for rays */
+            background: conic-gradient(
+                #FAF7F0 0deg, 
+                #FAF7F0 20deg, 
+                #B17457 20deg, 
+                #B17457 40deg,
+                #FAF7F0 40deg,
+                #FAF7F0 60deg,
+                #B17457 60deg,
+                #B17457 80deg,
+                #FAF7F0 80deg,
+                #FAF7F0 100deg,
+                #B17457 100deg,
+                #B17457 120deg,
+                #FAF7F0 120deg,
+                #FAF7F0 140deg,
+                #B17457 140deg,
+                #B17457 160deg,
+                #FAF7F0 160deg,
+                #FAF7F0 180deg,
+                #B17457 180deg,
+                #B17457 200deg,
+                #FAF7F0 200deg,
+                #FAF7F0 220deg,
+                #B17457 220deg,
+                #B17457 240deg,
+                #FAF7F0 240deg,
+                #FAF7F0 260deg,
+                #B17457 260deg,
+                #B17457 280deg,
+                #FAF7F0 280deg,
+                #FAF7F0 300deg,
+                #B17457 300deg,
+                #B17457 320deg,
+                #FAF7F0 320deg,
+                #FAF7F0 340deg,
+                #B17457 340deg,
+                #B17457 360deg
+            );
+            transform: translate(-50%, -50%);
+            animation: spin 10s linear infinite; /* Spinning animation */
+        }
+
+        @keyframes spin {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .image-container {
+            position: relative; /* Make the container relative to place the image */
+            z-index: 1; /* Ensure the image is above the background */
+        }
+    </style>
 </head>
-<body class="bg-white text-gray-800">
-  
-  <!-- Splash Screen -->
-  <div id="splash-screen">
-    <div class="text-center">
-      <h1 class="text-4xl font-bold text-white">Welcome to My Portfolio</h1>
+<body>
+    <div class="background"></div> <!-- Full-screen background -->
+    <div class="image-container flex items-center justify-center h-screen">
+        <a href="#" class="block">
+            <img src="assets/images/psp.png" alt="START" class="w-full h-auto max-w-3xl vibrate">
+        </a>
     </div>
-  </div>
-  
-   <!-- Main Content -->
-   <div id="main-content">
-        <header class="bg-gray-800 text-white p-6">
-          <h1 class="text-3xl font-bold"></h1>
-        </header>
-        <main class="p-6">
-          <section class="mt-8">
-            <h2 class="text-2xl font-semibold">Projects</h2>
-            <p>Here are some of my amazing projects...</p>
-          </section>
-        </main>
-      </div>
+    <script>
+        document.querySelector('.vibrate').addEventListener('click', function() {
+            this.classList.remove('vibrate'); // Stop the vibration effect
+            this.classList.add('explode'); // Add the explode class on click
 
-  <script>
-    // JavaScript to handle splash screen
-    window.addEventListener('load', function () {
-      const splashScreen = document.getElementById('splash-screen');
-      const mainContent = document.getElementById('main-content');
-
-      // Hide splash screen after a delay (e.g., 2 seconds)
-      setTimeout(() => {
-        splashScreen.style.display = 'none'; // Remove splash screen after animation
-        mainContent.classList.add('active'); // Show main content
-      }, 3000); // Match the animation duration (2 seconds)
-    });
-  </script>
-
+            // Remove both classes after the animation ends to allow it to reset
+            setTimeout(() => {
+                this.classList.remove('explode'); // Remove explode class
+                this.classList.add('zoom'); // Add the zoom class for the zooming effect
+            }, 500); // Match this duration to the animation duration in CSS
+        });
+    </script>
 </body>
 </html>
